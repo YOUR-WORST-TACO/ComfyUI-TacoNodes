@@ -9,8 +9,7 @@ app.registerExtension({
     uploadWidget: undefined,
 
     async beforeRegisterNodeDef(nodeType, nodeData, app) {
-        if (nodeData.name !== "TacoAnimatedLoader") {
-            //nodeData.input.required.upload = ["IMAGEUPLOAD"];
+        if (nodeData.name !== "TacoAnimatedLoader" && nodeData.name !== "TacoImg2ImgAnimatedLoader") {
             return
         }
 

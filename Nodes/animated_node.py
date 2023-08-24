@@ -24,6 +24,67 @@ def is_animated(image_path):
     return True
 
 
+class TacoImg2ImgAnimatedLoader:
+    @classmethod
+    def INPUT_TYPES(s):
+        input_dir = folder_paths.get_input_directory()
+        files = [f for f in os.listdir(input_dir) if os.path.isfile(os.path.join(input_dir, f))]
+
+        return {
+            "required": {
+                "image": (sorted(files),),
+                "frames": ("INT", {"default": 8, "min": 1, "max": 1000})
+            },
+        }
+
+    CATEGORY = GIF_BRANCH
+
+    RETURN_TYPES = ("IMAGE", "MASK")
+    FUNCTION = "load_image"
+
+    def load_image(self, image, frames):
+        image_path = folder_paths.get_annotated_filepath(image)
+        initial_image = Image.open(image_path)
+
+        images = []
+        masks = []
+
+        initial_image = ImageOps.exif_transpose(initial_image)
+        image = initial_image.convert("RGB")
+        image = np.array(image).astype(np.float32) / 255.0
+        image = torch.from_numpy(image)[None,]
+
+        if 'A' in initial_image.getbands():
+            mask = np.array(initial_image.getchannel('A')).astype(np.float32) / 255.0
+            mask = 1. - torch.from_numpy(mask)
+        else:
+            mask = torch.zeros((64, 64), dtype=torch.float32, device="cpu")
+
+        for i in range(frames):
+            images.append(image)
+            masks.append(mask)
+
+        spread_images = torch.cat(tuple(images), dim=0)
+        spread_masks = torch.cat(tuple(masks), dim=1)
+
+        return (spread_images, spread_masks)
+
+    @classmethod
+    def IS_CHANGED(s, image, frames):
+        image_path = folder_paths.get_annotated_filepath(image)
+        m = hashlib.sha256()
+        with open(image_path, 'rb') as f:
+            m.update(f.read())
+        return m.digest().hex()
+
+    @classmethod
+    def VALIDATE_INPUTS(s, image, frames):
+        if not folder_paths.exists_annotated_filepath(image):
+            return "Invalid image file: {}".format(image)
+
+        return True
+
+
 class TacoAnimatedLoader:
     @classmethod
     def INPUT_TYPES(s):
@@ -32,7 +93,8 @@ class TacoAnimatedLoader:
             return is_animated(image_path)
 
         input_dir = folder_paths.get_input_directory()
-        files = filter(animated_filter, [f for f in os.listdir(input_dir) if os.path.isfile(os.path.join(input_dir, f))])
+        files = filter(animated_filter,
+                       [f for f in os.listdir(input_dir) if os.path.isfile(os.path.join(input_dir, f))])
 
         return {"required":
                     {"image": (sorted(files),)},
@@ -78,7 +140,7 @@ class TacoAnimatedLoader:
                 break
 
         spread_images = torch.cat(tuple(images), dim=0)
-        #spread_masks = torch.cat(tuple(masks), dim=1)
+        # spread_masks = torch.cat(tuple(masks), dim=1)
 
         return (spread_images,)
 
