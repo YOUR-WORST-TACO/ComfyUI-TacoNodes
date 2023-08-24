@@ -24,11 +24,11 @@ class TacoLatent:
         self.device = device
 
     @classmethod
-    def INPUT_TYPES(s):
+    def INPUT_TYPES(cls):
         return {
             "required": {
-                "aspect_ratio": (s.aspect_ratios,),
-                "resolution_ratio": (s.resolution_ratios,),
+                "aspect_ratio": (cls.aspect_ratios,),
+                "resolution_ratio": (cls.resolution_ratios,),
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 64})
             }
         }
