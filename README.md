@@ -2,15 +2,31 @@
 
 <img alt="Example Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL.gif" width="512" />
 
-A handful of nodes I created for my own purposes, they do the following:
+A handful of ComfyUI nodes I created for my own purposes.
 
-- [Taco Latent Image](#taco-latent-image)
+## Installation
+Navigate to your ComfyUI installation location and find the `custom_nodes` folder.
+
+While inside the `custom_nodes` folder run the following command:
+```
+git clone https://github.com/YOUR-WORST-TACO/ComfyUI-TacoNodes.git
+```
+
+Restart ComfyUI to see the new nodes, located under `Taco_Nodes`
+
+## Usage
+
+- [Taco_Nodes/Taco Latent Image](#taco-latent-image)
+  - `Taco_Nodes/Taco Latent Image`
   - A replacement for the standard **Empty Latent Image** intended for faster latent image creation.
-- [Taco Animated Image Loader](#taco-animated-image-loader)
+- [Taco_Nodes/Gifs/Taco Animated Image Loader](#taco-animated-image-loader)
+  - `Taco_Nodes/Gifs/Taco Animated Image Loader`
   - Loads an animated image and batches each frame for processing.
-- [Taco Img2Img Animated Loader](#taco-img2img-animated-loader)
+- [Taco_Nodes/Gifs/Taco Img2Img Animated Loader](#taco-img2img-animated-loader)
+  - `Taco_Nodes/Gifs/Taco Img2Img Animated Loader`
   - Loads a standard image and creates a batch for processing.
-- [Taco Gif Maker](#taco-gif-maker)
+- [Taco_Nodes/Gifs/Taco Gif Maker](#taco-gif-maker)
+  - `Taco_Nodes/Gifs/Taco Gif Maker`
   - Takes a collection of images and combines them into a gif.
 
 ## Taco Latent Image
