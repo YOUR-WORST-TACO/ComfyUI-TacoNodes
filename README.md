@@ -1,6 +1,6 @@
 # ComfyUI-TacoNodes
 
-<img alt="Example Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL.gif" width="512" />
+<img alt="Example Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL_adv.gif" width="512" />
 
 A handful of ComfyUI nodes I created for my own purposes.
 
@@ -91,6 +91,15 @@ to spice up a still.
 
 Takes an input of **IMAGE** and will combine the input into a gif at the desired frame rate, see the above examples for 
 Gif Maker usage.
+
+
+## Advanced Examples
+
+### Taco Img2Img Animated Loader with masking
+
+<img alt="TIAL Workflow" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL_adv_workflow.png" />
+
+<img alt="TIAL Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL_adv.gif" width="512" />
 
 ## Liscense
 Copyright [2023] [YOUR-WORST-TACO]
