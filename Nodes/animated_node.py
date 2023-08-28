@@ -1,3 +1,5 @@
+import json
+
 import PIL
 import torch
 
@@ -7,6 +9,7 @@ import os
 import numpy as np
 
 from PIL import Image, ImageOps
+from PIL.PngImagePlugin import PngInfo
 
 from .. import path
 from ..tree import GIF_BRANCH
@@ -205,6 +208,21 @@ class TacoGifMaker:
             duration=round(1000 / frame_rate),
             loop=0,
             compress_level=4
+        )
+
+        metadata = PngInfo()
+        if prompt is not None:
+            metadata.add_text("prompt", json.dumps(prompt))
+        if extra_pnginfo is not None:
+            for x in extra_pnginfo:
+                metadata.add_text(x, json.dumps(extra_pnginfo[x]))
+
+        settings_file = f"{filename}_{counter:05}.png"
+        settings_file_path = os.path.join(full_output_folder, settings_file)
+        pil_images[0].save(
+            settings_file_path,
+            pnginfo=metadata,
+            compress_level=4,
         )
 
         previews = [
