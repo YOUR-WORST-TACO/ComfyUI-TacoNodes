@@ -59,9 +59,14 @@ app.registerExtension({
 
             this.fileInput = document.createElement("input");
 
+            const accepted_files = {
+                "TacoAnimatedLoader" : "image/png,image/webp,image/gif",
+                "TacoImg2ImgAnimatedLoader" : "image/jpeg,image/png,image/webp",
+            }
+
             Object.assign(this.fileInput, {
                 type: "file",
-                accept: "image/png,image/webp,image/gif",
+                accept: accepted_files[nodeData.name] ?? accepted_files["TacoAnimatedLoader"],
                 style: "display: none",
                 onchange: async () => {
                     if (this.fileInput.files.length) {
