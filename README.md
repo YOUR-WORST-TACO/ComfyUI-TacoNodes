@@ -1,14 +1,16 @@
 # ComfyUI-TacoNodes
 
+<img alt="Example Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL.gif" width="512" />
+
 A handful of nodes I created for my own purposes, they do the following:
 
-- [Taco Latent Image]()
+- [Taco Latent Image](#taco-latent-image)
   - A replacement for the standard **Empty Latent Image** intended for faster latent image creation.
-- [Taco Animated Image Loader]()
+- [Taco Animated Image Loader](#taco-animated-image-loader)
   - Loads an animated image and batches each frame for processing.
-- [Taco Img2Img Animated Loader]()
+- [Taco Img2Img Animated Loader](#taco-img2img-animated-loader)
   - Loads a standard image and creates a batch for processing.
-- [Taco Gif Maker]()
+- [Taco Gif Maker](#taco-gif-maker)
   - Takes a collection of images and combines them into a gif.
 
 ## Taco Latent Image
@@ -46,9 +48,11 @@ frames.
 
 ### Example Workflow
 
-![TAIL Workflow]()
+<img alt="TAIL Workflow" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TAIL_workflow.png" />
 
-![TAIL Gif]()
+*Enjoy my hideous creation*
+
+<img alt="TAIL Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TAIL.gif" width="512" />
 
 ## Taco Img2Img Animated Loader
 
@@ -57,11 +61,26 @@ to spice up a still.
 
 ### Example Workflow
 
-![TIAL Workflow]()
+<img alt="TIAL Workflow" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL_workflow.png" />
 
-![TAIL Gif]()
+<img alt="TIAL Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL.gif" width="512" />
 
 ## Taco GIf Maker
 
 Takes an input of **IMAGE** and will combine the input into a gif at the desired frame rate, see the above examples for 
 Gif Maker usage.
+
+## Liscense
+Copyright [2023] [YOUR-WORST-TACO]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
