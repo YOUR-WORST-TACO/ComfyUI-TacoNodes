@@ -14,6 +14,12 @@ git clone https://github.com/YOUR-WORST-TACO/ComfyUI-TacoNodes.git
 
 Restart ComfyUI to see the new nodes, located under `Taco_Nodes`
 
+## Future Goals
+- [ ] Allow **Taco Animated Image Loader** to provide a mask output
+- [ ] Create a method to inherit latent data from previous latent
+- [ ] Possibly refactor how the **Taco Latent Image** options are formatted
+- [ ] Add any other node I find I need
+
 ## Usage
 
 - [Taco_Nodes/Taco Latent Image](#taco-latent-image)
