@@ -11,7 +11,6 @@ import numpy as np
 from PIL import Image, ImageOps
 from PIL.PngImagePlugin import PngInfo
 
-from .. import path
 from ..tree import GIF_BRANCH
 import folder_paths
 
@@ -86,6 +85,33 @@ class TacoImg2ImgAnimatedLoader:
             return "Invalid image file: {}".format(image)
 
         return True
+
+
+class TacoImg2ImgAnimatedProcessor:
+    @classmethod
+    def INPUT_TYPES(s):
+
+        return {
+            "required": {
+                "image": ("IMAGE",),
+                "frames": ("INT", {"default": 8, "min": 1, "max": 1000})
+            },
+        }
+
+    CATEGORY = GIF_BRANCH
+
+    RETURN_TYPES = ("IMAGE",)
+    FUNCTION = "load_image"
+
+    def load_image(self, image, frames):
+        images = []
+
+        for i in range(frames):
+            images.append(image)
+
+        spread_images = torch.cat(tuple(images), dim=0)
+
+        return (spread_images,)
 
 
 class TacoAnimatedLoader:

@@ -22,16 +22,19 @@ Restart ComfyUI to see the new nodes, located under `Taco_Nodes`
 
 ## Usage
 
-- [Taco_Nodes/Taco Latent Image](#taco-latent-image)
+- [Taco Latent Image](#taco-latent-image)
   - `Taco_Nodes/Taco Latent Image`
   - A replacement for the standard **Empty Latent Image** intended for faster latent image creation.
-- [Taco_Nodes/Gifs/Taco Animated Image Loader](#taco-animated-image-loader)
+- [Taco Animated Image Loader](#taco-animated-image-loader)
   - `Taco_Nodes/Gifs/Taco Animated Image Loader`
   - Loads an animated image and batches each frame for processing.
-- [Taco_Nodes/Gifs/Taco Img2Img Animated Loader](#taco-img2img-animated-loader)
+- [Taco Img2Img Animated Loader](#taco-img2img-animated-loader)
   - `Taco_Nodes/Gifs/Taco Img2Img Animated Loader`
   - Loads a standard image and creates a batch for processing.
-- [Taco_Nodes/Gifs/Taco Gif Maker](#taco-gif-maker)
+- [Taco_Img2Img Animated Processor](#taco-img2img-animated-processor)
+  - `Taco_Nodes/Gifs/Taco Img2Img Animated Processor`
+  - Takes an input image Tensor and automatically batches it for processing.
+- [Taco Gif Maker](#taco-gif-maker)
   - `Taco_Nodes/Gifs/Taco Gif Maker`
   - Takes a collection of images and combines them into a gif.
 
@@ -86,6 +89,18 @@ to spice up a still.
 <img alt="TIAL Workflow" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL_workflow.png" />
 
 <img alt="TIAL Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAL.gif" width="512" />
+
+## Taco Img2Img Animated Processor
+
+Allows you to pass in an existing image Tensor and batch it by frames for further processing.
+
+### Example Workflow
+
+I first generate an image with KSampler, then decode that image and feed it into the processor, then process that batch.
+
+<img alt="TIAP Workflow" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAP_workflow.png" />
+
+<img alt="TIAP Gif" src="https://raw.githubusercontent.com/YOUR-WORST-TACO/ComfyUI-TacoNodes/assets/TIAP.gif" width="512" />
 
 ## Taco GIf Maker
 
